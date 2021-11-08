@@ -101,6 +101,7 @@
     <Compile Include="Admin\AdmMedico.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClinicaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\ClinicaDbContext.cs" />
     <Compile Include="Data\MedicosInitializer.cs" />
     <Compile Include="Filters\MyFilterAction.cs" />
@@ -127,6 +128,7 @@
     <Content Include="Views\Clinica\Delete.cshtml" />
     <Content Include="Views\Clinica\Edit.cshtml" />
     <Content Include="Views\Clinica\Detail.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
