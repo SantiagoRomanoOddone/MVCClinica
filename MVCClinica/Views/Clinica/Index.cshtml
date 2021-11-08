@@ -8,14 +8,32 @@
     <title>Index</title>
 </head>
 <body>
-    <p> @Html.ActionLink("Create New","Create","Clinica")</p>
+    <p> @Html.ActionLink("Create New", "Create", "Clinica")</p>
 
     @using (Html.BeginForm("SearchByEspecialidad", "Clinica", FormMethod.Get))
-            {
+    {
         @Html.TextBox("especialidadId", null)
-<input type="submit"  value="Search by EspecialidadId" />        
+        <input type="submit" value="Search by EspecialidadId" />
+    }
+    @using (Html.BeginForm("TraerNombreCompleto", "Clinica", FormMethod.Get))
+    {
 
-            }
+        <div>
+            @Html.Label("Nombre:")
+            @Html.TextBox("nombre", null)
+        </div>
+        <div>
+            @Html.Label("Apellido:")
+            @Html.TextBox("apellido", null)
+        </div>
+        <input type="submit" value="Search by Full Name" />
+    }
+    @using (Html.BeginForm("Index", "Clinica", FormMethod.Get))
+    {
+        <input type="submit" value="Traer  Todos" />
+    }
+
+
     <table>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Nombre) </th>
@@ -29,22 +47,22 @@
         </tr>
         @foreach (var item in Model)
         {
-    <tr>
-        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-        <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
-        <td>@Html.DisplayFor(modelItem => item.Matricula)</td>
-        <td>@Html.DisplayFor(modelItem => item.EspecialidadId)</td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.MedicoId })
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MedicoId })
-        </td>
-        <td>
-            @Html.ActionLink("Detail", "Detail", new { id = item.MedicoId })
-        </td>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.Matricula)</td>
+                <td>@Html.DisplayFor(modelItem => item.EspecialidadId)</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MedicoId })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MedicoId })
+                </td>
+                <td>
+                    @Html.ActionLink("Detail", "Detail", new { id = item.MedicoId })
+                </td>
 
-    </tr>
+            </tr>
 
         }
 

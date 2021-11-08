@@ -1,5 +1,6 @@
 ﻿using MVCClinica.Admin;
 using MVCClinica.Data;
+using MVCClinica.Filters;
 using MVCClinica.Models;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,18 @@ namespace MVCClinica.Controllers
         {
             return View("Index",AdmMedico.Listar());
         }
-        [HttpGet] 
+        
+        [HttpGet]
+        [MyFilterAction]
         public ActionResult Create()
         {
             Medico medico = new Medico();
             //retornamos la vista "Create" que tiene el objeto opera
             return View("Create", medico);
         }
-        [HttpPost]
+
+        
+        [HttpPost]      
         public ActionResult Create(Medico medico)
         {
             if (ModelState.IsValid)
@@ -108,6 +113,10 @@ namespace MVCClinica.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        public ActionResult TraerNombreCompleto (string nombre, string apellido)
+        {
+            return View ("Index", AdmMedico.TraerPorNombreCompleto(nombre, apellido));
         }
 
     }

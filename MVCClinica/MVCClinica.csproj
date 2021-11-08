@@ -103,6 +103,7 @@
     <Compile Include="Controllers\ClinicaController.cs" />
     <Compile Include="Data\ClinicaDbContext.cs" />
     <Compile Include="Data\MedicosInitializer.cs" />
+    <Compile Include="Filters\MyFilterAction.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
